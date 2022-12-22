@@ -1,0 +1,61 @@
+﻿    • Freesurfer-dev package download
+       from	https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/dev/
+           We downloaded “freesurfer-linux-ubuntu20_x86_64-7-dev.tar.gz “.
+    • Edit /usr/local/freesurfer
+       Please check the upper directory. If another freesurfer packages were made diectly, you should make each freesurfer directory, like this /usr/local/freesurfer/freesurfer-dev, /usr/local/freesurfer/freesurfer-7.1.1 etc. Or if you already divide each package, proceed next step!
+           $ cd /usr/local
+           $ sudo mv freesurfer freesurfer-*.*.*		# rename your old package
+           $ sudo mkdir freesurfer			# make new freesurfer directory
+           $ sudo mv freesurfer-*.*.* freesurfer		# move old package under freesurfer dir.
+	Editing .bashrc
+		Please edit your .bashrc file so as not to lost your preset freesurfer settings!
+		Please move to your home directory and open “.bashrc” using text editor.
+		Find the code below
+
+		#FreeSurfer
+		export SUBJECTS_DIR=~/freesurfer/subjects
+		export FREESURFER_HOME=/usr/local/freesurfer/
+		If your change your FREESURFER directory, edit like below
+		
+		#FreeSurfer
+		export SUBJECTS_DIR=~/freesurfer/subjects
+		# edport FREESURFER_HOME=/usr/local/freesurfer/
+		export FREESURFER_HOME=/usr/local/freesurfer/freesurfer-7.*.*
+			We recommend using “# “for your safety.
+
+    • Unpack the freesurfer-dev to /usr/local/freesurfer 
+              cd /usr/local/freesurfer
+		sudo mkdir freesurfer-dev and cd to freesurfer-dev
+		sudo tar xvzf ~/Downloads/freesurfer-linux-ubuntu20_x86_64-7-dev.tar.gz
+	If you have license.txt, cp the text file into freesurfer-dev
+
+    • Update .bashrc if you use freesufer-dev,now!
+            ▪ Open .bashrc and re-edit like this,
+		#FreeSurfer
+		export SUBJECTS_DIR=~/freesurfer/subjects
+		# export FREESURFER_HOME=/usr/local/freesurfer/
+		# export FREESURFER_HOME=/usr/local/freesurfer/freesurfer-7.*.*
+		export FREESURFER_HOME=/usr/local/freesurfer/freesurfer-dev
+
+    • How to use synthSR ?
+	1st you should get T1wi(SE), and T2wi(SE) images. 
+	Use dcm2niix to convert dicom to nifti image. You should gzip them.
+	If you used the GPU to do deep learning, setting have already done. Please run the command
+
+	mri_synthsr_hyperfine --t1 <t1.nii.gz> --t2 <t2w.nii.gz> --o <output directory_name> –	threads <enter the number of core to work> --cpu
+	
+	t1.nii.gz, and t2.nii.gz should be copied under ~/freesurfer/subject/ . 
+	Run the script under ~/freesurfer/subject/ 
+	If you met the error ;
+		terminate called after throwing an instance of 'std::bad_alloc'
+  		what():  std::bad_alloc
+		it may be the too large file size. You have to down-sample your T1, T2wi images. 
+			flirt -in input_image 
+    			  -ref good_size_image 
+     			 -out output_image 
+     			 -applyxfm (if you apply xfm)
+
+		flirt -in input_image 
+      -ref good_size_image 
+      -out output_image 
+      -applyxfm 
