@@ -55,7 +55,4 @@
      			 -out output_image 
      			 -applyxfm (if you apply xfm)
 
-		flirt -in input_image 
-      -ref good_size_image 
-      -out output_image 
-      -applyxfm 
+		Good_size_image as reference, we use some template.nii as small reference, but we have not velified 
