@@ -8,7 +8,7 @@
            $ sudo mkdir freesurfer			# make new freesurfer directory
            $ sudo mv freesurfer-*.*.* freesurfer		# move old package under freesurfer dir.
 	Editing .bashrc
-		Please edit your .bashrc file so as not to lost your preset freesurfer settings!
+		Please edit your .bashrc file so as not to lose your preset freesurfer settings!
 		Please move to your home directory and open “.bashrc” using text editor.
 		Find the code below
 
@@ -49,6 +49,7 @@
 	If you met the error ;
 		terminate called after throwing an instance of 'std::bad_alloc'
   		what():  std::bad_alloc
+		-->> view "added" befor you try down-sample...
 		it may be the too large file size. You have to down-sample your T1, T2wi images. 
 			flirt -in input_image 
     			  -ref good_size_image 
@@ -56,3 +57,6 @@
      			 -applyxfm (if you apply xfm)
 
 		Good_size_image as reference, we use some template.nii as small reference, but we have not velified 
+		
+	*** added ***
+	If you met the error, try to remove "--threads <n>". It may take a few minutes, but you may succeed!
