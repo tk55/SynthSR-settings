@@ -60,7 +60,7 @@ source $FREESURFER_HOME/SetUpFreeSurfer.sh
 
 Note that you can switch between old version and dev version by switching comment outed lines of .bashrc file.
 
-## About the warning of synthSR ‼️
+## ‼️About the warning of synthSR ‼️
 
 For those who obtained the dev version immediately after the release, the following error message is displayed when mri_synthsr is executed.
 
