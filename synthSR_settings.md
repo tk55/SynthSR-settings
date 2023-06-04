@@ -8,7 +8,7 @@ Note:If you also want to keep using older version, you may want to use tar.gz ra
 or pkg. packages.
 
 
-## Check your directories and make a directory for dev
+## Check your directories and make a directory for new version.
 
 Check the directory structure. If you are already using freesurfer, your directory should look like this
 
@@ -29,8 +29,8 @@ The final directory structure will look like this
 ```
 /usr/local
        └── freesurfer
-              ├── freesurfer-*.*.*
-              └── freesurfer-*.*.*
+              ├── freesurfer-*.*.*(old_version)
+              └── freesurfer-*.*.*(new_version)
 ```
 
 
