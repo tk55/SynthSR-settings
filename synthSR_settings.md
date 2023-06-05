@@ -89,7 +89,19 @@ You can leave this message alone, but a patch file is available at freesurfer's 
 
 See freesurfer [wiki page.](https://surfer.nmr.mgh.harvard.edu/fswiki/SynthSR)
 
-NOTE: If you get error with GPU version(default), you can use CPU version by setting "--cpu" flag. If you use
-"--threads" flag (eg --threads 4) together, it takes not so longer.
+- If you get error with GPU version(default), you can use CPU version by setting "--cpu" flag. If you use
+"--threads" flag (eg. --threads 4 or more, according to your resource) together, it will not take so longer time.
 
-Good luck!
+- If you get error like 
+```
+what():  std::bad_alloc
+```
+
+You can check your memory rsource.
+If you are using --threads option, by removing it things may go better.
+
+- Related to the above, note using CT as input  might need more abundant memory. 
+
+
+Good luck! :smiley::wave:
+
