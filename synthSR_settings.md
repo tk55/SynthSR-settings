@@ -7,8 +7,7 @@ SynyhSR is included in Freesurfer7.3.0 or after. Download the version appropriat
 Note:If you also want to keep using older version, you may want to use tar.gz rather than deb, rpm,
 or pkg. packages.
 
-
-## Check your directories and make a directory for new version.
+## Check your directories and make a directory for new version
 
 Check the directory structure. If you are already using freesurfer, your directory should look like this
 
@@ -16,14 +15,16 @@ Check the directory structure. If you are already using freesurfer, your directo
 /usr/local
        └── freesurfer        
 ```
+
 Installation from the command line would be, for example, the following command
 
 ```
-$ cd /usr/local
+cd /usr/local
 $ sudo mv freesurfer freesurfer-*.*.*        # rename your old package
 $ sudo mkdir freesurfer                      # make new freesurfer directory
 $ sudo mv freesurfer-*.*.* freesurfer        # move old package under freesurfer dir.
 ```
+
 The final directory structure will look like this
 
 ```
@@ -32,7 +33,6 @@ The final directory structure will look like this
               ├── freesurfer-*.*.*(old_version)
               └── freesurfer-*.*.*(new_version)
 ```
-
 
 ## Unpack the freesurfer-latest to /usr/local/freesurfer (e.g. freesurfer-linux-ubuntu22_amd64-7.4.0.tar.gz)
 
@@ -43,6 +43,7 @@ sudo tar xvzf ~/Downloads/freesurfer-linux-ubuntu22_amd64-7.4.0.tar.gz -C /usr/l
 If you have license.txt, copy it into freesurfer/freesurfer7.4.0 directory.
 
 ## Update .bashrc
+
 Open .bashrc (or maybe .bash_profile, bash_aliases) and comment out your old settings.
 
 ```
@@ -54,6 +55,7 @@ Open .bashrc (or maybe .bash_profile, bash_aliases) and comment out your old set
 ```
 
 Then write your new settings for new version.
+
 ```
 #FreeSurfer *.*.*
 export SUBJECTS_DIR=/usr/local/freesurfer/freesurfer*.*.*/subjects
@@ -64,14 +66,14 @@ source $FREESURFER_HOME/SetUpFreeSurfer.sh
 
 Note that you can switch between old version and dev version by switching comment outed lines of .bashrc file.
 
-## 📌About Conflict with FSL 📌 
+## 📌About Conflict with FSL 📌
 
-If you use FSL 6.0.6 or later, some troubles may arrise. So you may want to modify FreeSurferEnv.sh. 
+If you use FSL 6.0.6 or later, some troubles may arrise. So you may want to modify FreeSurferEnv.sh.
 Check following site for details.
 
 [Dealing with Issues when Installing FreeSurfer and FSL 6.0.6 or Later](https://www.nemotos.net/?p=5388)
 
-## 📌About the warning of synthSR 📌 
+## 📌About the warning of synthSR 📌
 
 For those who obtained the dev version immediately after the release, the following error message is displayed when mri_synthsr is executed.
 
@@ -83,7 +85,7 @@ get_data() is deprecated in favor of get_fdata(), which has a more predictable r
 resuming program execution
 ```
 
-You can leave this message alone, but a patch file is available at freesurfer's website (https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/7.3.2-patch/synthsr/). Please download this file and replace the file according to the README.txt.
+You can leave this message alone, but a patch file is available at freesurfer's website (<https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/7.3.2-patch/synthsr/>). Please download this file and replace the file according to the README.txt.
 
 ## How to use synthSR ?
 
@@ -92,7 +94,8 @@ See freesurfer [wiki page.](https://surfer.nmr.mgh.harvard.edu/fswiki/SynthSR)
 - If you get error with GPU version(default), you can use CPU version by setting "--cpu" flag. If you use
 "--threads" flag (eg. --threads 4 or more, according to your resource) together, it will not take so longer time.
 
-- If you get error like 
+- If you get error like
+
 ```
 what():  std::bad_alloc
 ```
@@ -100,8 +103,6 @@ what():  std::bad_alloc
 You can check your memory rsource.
 If you are using --threads option, by removing it things may go better.
 
-- Related to the above, note using CT as input  might need more abundant memory. 
-
+- Related to the above, note using CT as input  might need more abundant memory.
 
 Good luck! :smiley::wave:
-
