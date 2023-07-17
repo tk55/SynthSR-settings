@@ -1,15 +1,15 @@
-﻿## Freesurfer-dev package download
+﻿## Freesurfer download
 
-SynyhSR is included in Freesurfer7.3.0 or after. Download the version appropriate for your OS.
+SynyhSR is included in Freesurfer7.3.0 or later. Download the version appropriate for your OS.
 
 [freesurfer Download and Install](https://surfer.nmr.mgh.harvard.edu/fswiki/DownloadAndInstall)
 
 Note:If you also want to keep using older version, you may want to use tar.gz rather than deb, rpm,
-or pkg. packages.
+or pkg. packages. See the next section for details.
 
 ## Check your directories and make a directory for new version
 
-Check the directory structure. If you are already using freesurfer, your directory should look like this
+Check the directory structure. If you are already using freesurfer, your directory should look something like this
 
 ```
 /usr/local
